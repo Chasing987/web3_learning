@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Faucet.sol": "Faucet"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Faucet.sol": {
+			"keccak256": "0x7930c2d5f01ca7a2be6d9d32386af6b1bdb45584b0f9020bec616500bbcfce1a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a1af87a5289729d91ade7879babdf2e6994ee7b8ea433b08c534c0c40536b2c7",
+				"dweb:/ipfs/QmX4Xaa49TWHr9GbEs3LcsRd149D7mb4KgCPiWGhefHgzo"
+			]
+		}
+	},
+	"version": 1
+}
