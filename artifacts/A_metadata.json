@@ -19,10 +19,23 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "sender",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_callee",
+						"name": "_contract",
 						"type": "address"
 					},
 					{
@@ -31,9 +44,22 @@
 						"type": "uint256"
 					}
 				],
-				"name": "updateNum",
+				"name": "setVars",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "value",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -50,7 +76,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/043_delegate_call.sol": "Caller"
+			"C2E_learning/043_delegate_call_course.sol": "A"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -64,12 +90,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/043_delegate_call.sol": {
-			"keccak256": "0xef810660693dd122edbacfdf1efffc65330628e796de446fdc7ef2320be23f2a",
+		"C2E_learning/043_delegate_call_course.sol": {
+			"keccak256": "0x11e5e9667302604022d202a8096845f780cca978fe99f08968c07e7fde457129",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c5a69550cec3661bee94887f3a3e15597cbf0e63f58de3e79f621283d10d1c26",
-				"dweb:/ipfs/QmZGiFCAW8hyPcVoDCMXqsvdNK86vmUXQju8zogvA7PGZ2"
+				"bzz-raw://3369b80ad8f40fb7adbe6579722f675f9f82a1d1d422395b2c2f004fdb78c4fd",
+				"dweb:/ipfs/QmfDgvrhfMt35sPJobiVGvnnPYkw9kx98HzPwt8RcqVxgx"
 			]
 		}
 	},

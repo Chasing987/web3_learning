@@ -6,32 +6,14 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "num",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_callee",
-						"type": "address"
-					},
 					{
 						"internalType": "uint256",
 						"name": "_num",
 						"type": "uint256"
 					}
 				],
-				"name": "updateNum",
+				"name": "setNum",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -50,7 +32,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/043_delegate_call.sol": "Caller"
+			"C2E_learning/043_delegate_call.sol": "Callee"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
