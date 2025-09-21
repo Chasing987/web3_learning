@@ -8,20 +8,20 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "_func",
+						"type": "string"
+					}
+				],
+				"name": "getSelector",
+				"outputs": [
+					{
 						"internalType": "bytes4",
-						"name": "interfaceID",
+						"name": "",
 						"type": "bytes4"
 					}
 				],
-				"name": "supportsInterface",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -38,7 +38,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/MyNFT.sol": "IERC165"
+			"C2E_learning/053_function_selector.sol": "FunctionSelector"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -52,12 +52,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/MyNFT.sol": {
-			"keccak256": "0x584e5b9b31bb620a6096af29d978519b28e3dfcebc9bd7519019326bf82780a9",
+		"C2E_learning/053_function_selector.sol": {
+			"keccak256": "0xe91a665eac5299a9f225a1775b0c311d4751708538f7067b3db93f33a72b0386",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://40c6287408ac6bdf6ee38a6dfb312e1d343af329a45c8a21451a5b69f250ad14",
-				"dweb:/ipfs/QmWnbKyV55scQjDMmHqYcgbhByXDqcdwuMiAfxVJS44jyN"
+				"bzz-raw://bf3c0d9719f7f5851a12306035ce1daf7485d66cf183f56064965ec192db899a",
+				"dweb:/ipfs/QmbLuGED5ftX7qUmwTSmqQnZFap8mSeTSk7VccmicwZsaW"
 			]
 		}
 	},

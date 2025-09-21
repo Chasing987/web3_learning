@@ -84,12 +84,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "spender",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "id",
 						"type": "uint256"
 					}
 				],
@@ -110,7 +110,7 @@
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "balance",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -121,7 +121,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "id",
 						"type": "uint256"
 					}
 				],
@@ -134,7 +134,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "id",
 						"type": "uint256"
 					}
 				],
@@ -142,7 +142,7 @@
 				"outputs": [
 					{
 						"internalType": "address",
-						"name": "operator",
+						"name": "",
 						"type": "address"
 					}
 				],
@@ -182,7 +182,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "id",
 						"type": "uint256"
 					}
 				],
@@ -195,7 +195,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "id",
 						"type": "uint256"
 					}
 				],
@@ -224,7 +224,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "id",
 						"type": "uint256"
 					}
 				],
@@ -247,7 +247,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "id",
 						"type": "uint256"
 					},
 					{
@@ -270,7 +270,7 @@
 					},
 					{
 						"internalType": "bool",
-						"name": "_approved",
+						"name": "approved",
 						"type": "bool"
 					}
 				],
@@ -283,7 +283,7 @@
 				"inputs": [
 					{
 						"internalType": "bytes4",
-						"name": "interfaceID",
+						"name": "interfaceId",
 						"type": "bytes4"
 					}
 				],
@@ -295,7 +295,7 @@
 						"type": "bool"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -312,7 +312,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "tokenId",
+						"name": "id",
 						"type": "uint256"
 					}
 				],
@@ -335,7 +335,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/050_ERC721_1.sol": "MyNFT"
+			"C2E_learning/MyNFT.sol": "MyNFT"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -349,12 +349,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/050_ERC721_1.sol": {
-			"keccak256": "0x8aa911d5f30f336f3dfd7c3eeb662653565b994e6b13fbfa919417e3674539c8",
+		"C2E_learning/MyNFT.sol": {
+			"keccak256": "0x584e5b9b31bb620a6096af29d978519b28e3dfcebc9bd7519019326bf82780a9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://14a1f83930b814ef714cbb6effb143adce33fcdfeb3d60bc7f9ac4a7996a4504",
-				"dweb:/ipfs/QmfPh8uCqMTNZAHtHUdM9P6jdK3YNZAEb2TGmrc19kU6Fy"
+				"bzz-raw://40c6287408ac6bdf6ee38a6dfb312e1d343af329a45c8a21451a5b69f250ad14",
+				"dweb:/ipfs/QmWnbKyV55scQjDMmHqYcgbhByXDqcdwuMiAfxVJS44jyN"
 			]
 		}
 	},
