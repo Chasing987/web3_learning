@@ -42,7 +42,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/054_DutchAuction.sol": "IERC721"
+			"C2E_learning/055_english_auction.sol": "IERC721"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -56,12 +56,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/054_DutchAuction.sol": {
-			"keccak256": "0xc3a83d14a2299c656872c4ad518e42275c457c6f0fc222af69b861bc2fcbc8e8",
+		"C2E_learning/055_english_auction.sol": {
+			"keccak256": "0x17f846819ab87626a24c03e60ffbf31c20eadf4684cccd55648a9ed460a6621d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7682db3fc4b6ebb15bcb8429779ab2e36a4074b0631ee0b66efcec93df876bc3",
-				"dweb:/ipfs/QmRvaaAZfQRh3Zt2AGU6jeLuPxzjT7R1mUCJfxLZFmuktr"
+				"bzz-raw://80c515d127701d37f5d6ae85157198575483eff0c04c8fffbaef8539605b375e",
+				"dweb:/ipfs/QmYoyceJVhxZMwskodmx4Up9y7tSqDf3kAWrctUAceXMpb"
 			]
 		}
 	},
