@@ -6,23 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_name",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_symbol",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_decimals",
-						"type": "uint8"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -298,7 +282,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/MyToken.sol": "ERC20"
+			"C2E_learning/MyToken.sol": "MyToken"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
