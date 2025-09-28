@@ -1,0 +1,72 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "nums",
+						"type": "uint256[]"
+					}
+				],
+				"name": "sumIfEventAndLessThan99",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "total",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"C2E_learning/061_gas_golf.sol": "GasGolf"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"C2E_learning/061_gas_golf.sol": {
+			"keccak256": "0x3d0ee6123f9a4c559c8713625845a54908f0038cbd727a3aabac88f5f8573317",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://13ac7c847a27c93cb87b640ad40de0ce236682ca7448f49cf0fd41857508fff0",
+				"dweb:/ipfs/QmR5zxS5SnVWuDuy2GMzUn6XJcXPKNEELRjjChVzQBxA5m"
+			]
+		}
+	},
+	"version": 1
+}

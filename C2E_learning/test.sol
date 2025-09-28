@@ -1,107 +1,137 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.23;
-interface IERC20 {
-    function transfer(address, uint256) external returns (bool);
-    function transferFrom(address, address, uint256) external returns (bool);
-}
-contract CrowdFund {
-    event Launch(
-        uint id,
-        address indexed creator,
-        uint goal,
-        uint32 startAt,
-        uint32 endAt
+pragma solidity ^0.8.24;
+contract TimeLock {
+    error NotOwnerError();
+    error AlreadyQueuedError(bytes32 txId);
+    error TimestampNotInRangeError(uint blockTimestamp, uint timestamp);
+    error NotQueuedError(bytes32 txId);
+    error TimestampNotPassedError(uint blockTimestamp, uint timestamp);
+    error TimestampExpiredError(uint blockTimestamp, uint expiredAt);
+    error TxFailedError();
+    event Queue(
+        bytes32 indexed txId,
+        address indexed target,
+        uint value,
+        string func,
+        bytes data,
+        uint timestamp
     );
-    event Cancel(uint id);
-    event Pledge(uint indexed id, address indexed caller, uint amount);
-    event Unpledge(uint indexed id, address indexed caller, uint amount);
-    event Claim(uint id);
-    event Refund(uint indexed id, address indexed caller, uint amount);
-    struct Campaign {
-        address creator;
-        uint goal;
-        uint pledged;
-        uint32 startAt;
-        uint32 endAt;
-        bool claimed;
+    event Execute(
+        bytes32 indexed txId,
+        address indexed target,
+        uint value,
+        string func,
+        bytes data,
+        uint timestamp
+    );
+    event Cancel(bytes32 indexed txId);
+    uint public constant MIN_DELAY = 10;
+    uint public constant MAX_DELAY = 1000;
+    uint public constant GRACE_PERIOD = 1000;
+    address public owner;
+    mapping(bytes32 => bool) public queued;
+    constructor() {
+        owner = msg.sender;
     }
-    IERC20 public immutable token;
-    uint public count;
-    mapping(uint => Campaign) public campaigns;
-    mapping(uint => mapping(address => uint)) public pledgedAmount;
-    constructor(address _token) {
-        token = IERC20(_token);
+    receive() external payable {}
+    modifier onlyOwner() {
+        if (msg.sender != owner) {
+            revert NotOwnerError();
+        }
+        _;
     }
-    // 发起众筹
-    function launch(
-        uint _goal,
-        uint32 _startOffset,
-        uint32 _endOffset
-    ) external {
-        require(_endOffset > _startOffset, "endAt <= startAt");
-        require(_endOffset <= 30 days, "end > 30 days");
-        uint32 _startAt = uint32(block.timestamp) + _startOffset;
-        uint32 _endAt = uint32(block.timestamp) + _endOffset;
-        count += 1;
-        campaigns[count] = Campaign({
-            creator: msg.sender,
-            goal: _goal,
-            pledged: 0,
-            startAt: _startAt,
-            endAt: _endAt,
-            claimed: false
-        });
-        emit Launch(count, msg.sender, _goal, _startAt, _endAt);
+    function getTxId(
+        address _target,
+        uint _value,
+        string calldata _func,
+        bytes calldata _data,
+        uint _timestamp
+    ) public pure returns (bytes32 txId) {
+        return keccak256(abi.encode(_target, _value, _func, _data, _timestamp));
     }
-
-    // 取消众筹
-    function cancel(uint _id) external {
-        Campaign memory campaign = campaigns[_id];
-        require(msg.sender == campaign.creator, "not creator");
-        require(block.timestamp < campaign.startAt, "started");
-        delete campaigns[_id];
-        emit Cancel(_id);
+    function queue(
+        address _target,
+        uint _value,
+        string calldata _func,
+        bytes calldata _data,
+        uint _timestamp
+    ) external onlyOwner {
+        bytes32 txId = getTxId(_target, _value, _func, _data, _timestamp);
+        if (queued[txId]) {
+            revert AlreadyQueuedError(txId);
+        }
+        // ---|------------|---------------|-------
+        // block block + min block + max
+        if (
+            _timestamp < block.timestamp + MIN_DELAY ||
+            _timestamp > block.timestamp + MAX_DELAY
+        ) {
+            revert TimestampNotInRangeError(block.timestamp, _timestamp);
+        }
+        // queue tx
+        queued[txId] = true;
+        emit Queue(txId, _target, _value, _func, _data, _timestamp);
     }
-    // 认捐资金
-    function pledge(uint _id, uint _amount) external {
-        Campaign storage campaign = campaigns[_id];
-        require(block.timestamp >= campaign.startAt, "not started");
-        require(block.timestamp <= campaign.endAt, "ended");
-        campaign.pledged += _amount;
-        pledgedAmount[_id][msg.sender] += _amount;
-        token.transferFrom(msg.sender, address(this), _amount);
-        emit Pledge(_id, msg.sender, _amount);
+    function execute(
+        address _target,
+        uint _value,
+        string calldata _func,
+        bytes calldata _data,
+        uint _timestamp
+    ) external payable onlyOwner returns (bytes memory) {
+        bytes32 txId = getTxId(_target, _value, _func, _data, _timestamp);
+        // check tx is queued
+        if (!queued[txId]) {
+            revert NotQueuedError(txId);
+        }
+        // check block.timestamp > _timestamp
+        if (block.timestamp < _timestamp) {
+            revert TimestampNotPassedError(block.timestamp, _timestamp);
+        }
+        // ----|-------------------|-------
+        // timestamp timestamp + grace period
+        if (block.timestamp > _timestamp + GRACE_PERIOD) {
+            revert TimestampExpiredError(
+                block.timestamp,
+                _timestamp + GRACE_PERIOD
+            );
+        }
+        queued[txId] = false;
+        bytes memory data;
+        if (bytes(_func).length > 0) {
+            data = abi.encodePacked(bytes4(keccak256(bytes(_func))), _data);
+        } else {
+            data = _data;
+        }
+        // execute the tx
+        (bool ok, bytes memory res) = _target.call{value: _value}(data);
+        if (!ok) {
+            revert TxFailedError();
+        }
+        emit Execute(txId, _target, _value, _func, _data, _timestamp);
+        return res;
     }
-
-    // 撤回认捐
-    function unpledge(uint _id, uint _amount) external {
-        Campaign storage campaign = campaigns[_id];
-        require(block.timestamp <= campaign.endAt, "ended");
-        campaign.pledged -= _amount;
-        pledgedAmount[_id][msg.sender] -= _amount;
-        token.transfer(msg.sender, _amount);
-        emit Unpledge(_id, msg.sender, _amount);
+    function cancel(bytes32 _txId) external onlyOwner {
+        if (!queued[_txId]) {
+            revert NotQueuedError(_txId);
+        }
+        queued[_txId] = false;
+        emit Cancel(_txId);
     }
-
-    // 提取资金
-    function claim(uint _id) external {
-        Campaign storage campaign = campaigns[_id];
-        require(msg.sender == campaign.creator, "not creator");
-        require(block.timestamp > campaign.endAt, "not ended");
-        require(campaign.pledged >= campaign.goal, "pledged < goal");
-        require(!campaign.claimed, "claimed");
-        campaign.claimed = true;
-        token.transfer(msg.sender, campaign.pledged);
-        emit Claim(_id);
+}
+contract TestTimeLock {
+    address public timeLock;
+    constructor(address _timeLock) {
+        timeLock = _timeLock;
     }
-    // 失败退款
-    function refund(uint _id) external {
-        Campaign storage campaign = campaigns[_id];
-        require(block.timestamp > campaign.endAt, "not ended");
-        require(campaign.pledged < campaign.goal, "pledged >= goal");
-        uint bal = pledgedAmount[_id][msg.sender];
-        pledgedAmount[_id][msg.sender] = 0;
-        token.transfer(msg.sender, bal);
-        emit Refund(_id, msg.sender, bal);
+    function test() external view {
+        require(msg.sender == timeLock);
+        // more code such as
+        // - 升级合约
+        // - 转移资产
+        // - 修改预言机
+    }
+    function getTimestamp() external view returns (uint) {
+        return block.timestamp + 100;
     }
 }
