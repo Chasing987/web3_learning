@@ -1,6 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+/*
+- ​​queue(...)​​：将一笔交易请求“排队”，但不会立即执行。该交易将在指定的未来时间戳 _timestamp才能被执行。
+​- ​execute(...)​​：在满足时间条件后，执行之前排队的交易。
+- ​​cancel(...)​​：取消一个已经排队但尚未执行的交易。
+- 使用了一系列的 ​​error​​ 和 ​​event​​ 来精确控制流程和提供调用信息。
+*/
+
 contract TimeLock{
     error NotOwnerError();
     error AlreadyQueuedError(bytes32 txId);
@@ -14,12 +21,12 @@ contract TimeLock{
     event Execute(bytes32 indexed txId, address indexed target, uint value, string func, bytes data, uint timestamp);
     event Cancel(bytes32 indexed txId);
 
-    uint public constant MIN_DELAY = 10;
-    uint public constant MAX_DELAY = 1000;
-    uint public constant GRACE_PERIOD = 100;
+    uint public constant MIN_DELAY = 10; // 最小延迟：10 秒
+    uint public constant MAX_DELAY = 1000; // 最大延迟：1000 秒 (~16分钟)
+    uint public constant GRACE_PERIOD = 100; // 生效窗口期：执行必须在 _timestamp ~ _timestamp + 100 秒内
 
-    address public owner;
-    mapping(bytes32 => bool) public queued;
+    address public owner; // 合约所有者
+    mapping(bytes32 => bool) public queued; // 通过一个 mapping 来记录哪些交易已经被“排队”。
 
     constructor(){
         owner = msg.sender;
@@ -33,10 +40,28 @@ contract TimeLock{
         _;
     }
 
+    /*
+    - 通过 keccak256对以下参数进行哈希，生成唯一交易 ID
+    - 目标合约地址 _target
+    - 转账金额 _value
+    - 函数名称字符串 _func
+    - 调用数据 _data
+    - 执行时间戳 _timestamp
+    - 这个 ID 用于唯一标识一笔排队的交易，防止重复排队或错误执行。
+    */
     function getTxId(address _target, uint _value, string calldata _func, bytes calldata _data, uint _timestamp) public pure returns (bytes32 txId){
         return keccak256(abi.encode(_target, _value, _func, _data, _timestamp));
     }
 
+    /*
+    - 作用：​​ 将一个调用请求加入队列，但并不执行。
+    ​​参数：​​
+    _target: 目标合约地址
+    _value: 转账的 ETH 数量（wei）
+    _func: 要调用的函数名（字符串）
+    _data: 调用数据（通常为函数签名 + 参数编码）
+    _timestamp: 希望执行的时间戳
+    */
     function queue(address _target, uint _value, string calldata _func, bytes calldata _data, uint _timestamp)external onlyOwner{
         bytes32 txId = getTxId(_target, _value, _func, _data, _timestamp);
         if(queued[txId]){
@@ -52,6 +77,9 @@ contract TimeLock{
         emit Queue(txId, _target, _value, _func, _data, _timestamp);
     }
 
+    /*
+    - 作用：​​ 在满足时间条件时，执行之前排队的交易。
+    */
     function execute(address _target, uint _value, string calldata _func, bytes calldata _data, uint _timestamp) external payable onlyOwner returns (bytes memory){
         bytes32 txId = getTxId(_target, _value, _func, _data, _timestamp);
 

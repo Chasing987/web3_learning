@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "findMostSinnificantBit",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "r",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"C2E_learning/069_most_signification_bit_using_binary_search_code.sol": "MostSignificantBit"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"C2E_learning/069_most_signification_bit_using_binary_search_code.sol": {
+			"keccak256": "0x391e84ccf7ed03f4098c012e03534b3769692bcd11161fb03b50b8d15ed9123c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d0c7b5e765c332bae651686194e8202fb841b2f2c3d8746e6317936251cfe9f4",
+				"dweb:/ipfs/Qmd925zcias7LHZFiW2dQDCcxxshSUiokKeGeC8JFU68QN"
+			]
+		}
+	},
+	"version": 1
+}
