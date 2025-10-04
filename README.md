@@ -1,3 +1,3 @@
 ## Web3学习
 
-学习silidity
+学习solidity
