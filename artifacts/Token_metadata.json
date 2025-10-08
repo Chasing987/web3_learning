@@ -37,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/072_3_ways_to_encode_call_data.sol": "IERC20"
+			"C2E_learning/072_3_ways_to_encode_call_data.sol": "Token"
 		},
 		"evmVersion": "prague",
 		"libraries": {},

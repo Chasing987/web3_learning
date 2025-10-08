@@ -7,7 +7,7 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "count",
+				"name": "MAX_UINT",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -19,16 +19,41 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "inc",
-				"outputs": [
+				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "x",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"name": "mostSignificantBit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "r",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "mostSignificantBit1",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "msb",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -45,7 +70,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/081_input_output_fallback.sol": "Counter"
+			"C2E_learning/080_MBS.sol": "MostSignificantBitAssembly"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -59,12 +84,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/081_input_output_fallback.sol": {
-			"keccak256": "0x76c358defaeb6220fcd80ece73c79caceea254856274b049ec4bff4f16c85687",
+		"C2E_learning/080_MBS.sol": {
+			"keccak256": "0xdcd7e664aa986e5c27ba4e17d7185488e136d408b1bded5ccc2e6e30839a66e7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0aefc84478f7345dcba91a62fc16d76a68026fea899e6e991ded9ac2c3f562a1",
-				"dweb:/ipfs/Qme9iJVmj7ueC2cv1cDRGq2wofR5WcT6K2uaxfpFb9GuQi"
+				"bzz-raw://30e9dc0f9c9776e7e1ae5e0865e0cdf39fd4ee2192939de3bb88c236dfc76427",
+				"dweb:/ipfs/Qmecy64tap9tjjM9sQpMEXYrSuZ43hG9WgE68EJVttyX3i"
 			]
 		}
 	},

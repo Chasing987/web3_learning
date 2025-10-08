@@ -6,21 +6,16 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
+				"inputs": [],
+				"name": "getMeaningOfLife",
+				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "transfer",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -37,7 +32,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/072_3_ways_to_encode_call_data.sol": "IERC20"
+			"C2E_learning/079_simple_bytecode_contract.sol": "IContract"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -51,12 +46,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/072_3_ways_to_encode_call_data.sol": {
-			"keccak256": "0xc2c1280d0afc379e6b8f7d8d15994a193f05f711e35600f8cfd342b0dac0719b",
+		"C2E_learning/079_simple_bytecode_contract.sol": {
+			"keccak256": "0x63b50493b7ab195350d88d9076178910d60f0e01a721b30f1ec90caa01bb4159",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f480ead2b6859b8bf6236aab9f5c1614517e8071b207bb4a203de82a0d646f62",
-				"dweb:/ipfs/QmNnfuNGvQ5u73PD53oyfGPm3dGKS6wCbMAboWCQDSu3n2"
+				"bzz-raw://57614a9936e4a7fe3f751ad5c82bd838430dd45617ba1b10e1f8162c4444dc18",
+				"dweb:/ipfs/QmNmZVVbjXPZwda8g6M54BX8EAXp1ci9XqYSu33akcdXgu"
 			]
 		}
 	},
