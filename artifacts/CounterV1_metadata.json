@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "count",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "increment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"C2E_learning/073_wrong_way_update_proxy_part_1.sol": "CounterV1"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"C2E_learning/073_wrong_way_update_proxy_part_1.sol": {
+			"keccak256": "0x796e692850140ad1e8a02c0a632df9401d831aa31f78d2fbfda80ee024beff06",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2d849cd39cd092dd7a057158fb4382264e175d0a5fc2af0e14b69c86141e1c38",
+				"dweb:/ipfs/QmdNB7BU56rm7cBnGVUDrPVaneoNybvSqo5QAQ7Gptdo5G"
+			]
+		}
+	},
+	"version": 1
+}
