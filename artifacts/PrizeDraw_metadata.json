@@ -1,0 +1,77 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "prizeNumber",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isWin",
+						"type": "bool"
+					}
+				],
+				"name": "PrizeResult",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "start",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/PrizeDraw.sol": "PrizeDraw"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/PrizeDraw.sol": {
+			"keccak256": "0x6273bd686806267daf76d617066987eeff8f3911d1b0a388b15075ea027529de",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cefceb7db5b34d3f2a3e75fe9542d73c5379c67be6ac13df64c6fc3270b7d5b1",
+				"dweb:/ipfs/QmNhZ3Y6hsgBCsLJsWuLrSWiCp86PNHtCBT6MifkVpL8Mn"
+			]
+		}
+	},
+	"version": 1
+}
