@@ -304,7 +304,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/MyNFT.sol": "ERC721"
+			"C2E_learning/01_project/01_荷兰拍卖/MyNFT.sol": "ERC721"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -318,7 +318,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/MyNFT.sol": {
+		"C2E_learning/01_project/01_荷兰拍卖/MyNFT.sol": {
 			"keccak256": "0x584e5b9b31bb620a6096af29d978519b28e3dfcebc9bd7519019326bf82780a9",
 			"license": "MIT",
 			"urls": [

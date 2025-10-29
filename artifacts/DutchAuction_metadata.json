@@ -156,7 +156,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/054_DutchAuction.sol": "DutchAuction"
+			"C2E_learning/01_project/01_荷兰拍卖/DutchAuction.sol": "DutchAuction"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -170,12 +170,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/054_DutchAuction.sol": {
-			"keccak256": "0xc3a83d14a2299c656872c4ad518e42275c457c6f0fc222af69b861bc2fcbc8e8",
+		"C2E_learning/01_project/01_荷兰拍卖/DutchAuction.sol": {
+			"keccak256": "0x3ff9b4bd7021b775591786a194d9e9d771d5f7464fa1461ca8d9a2945069b44a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7682db3fc4b6ebb15bcb8429779ab2e36a4074b0631ee0b66efcec93df876bc3",
-				"dweb:/ipfs/QmRvaaAZfQRh3Zt2AGU6jeLuPxzjT7R1mUCJfxLZFmuktr"
+				"bzz-raw://053e5d68d95335c3203b349709e91b7c2c2f14c3ad73b8731a2cbe806dcee0cf",
+				"dweb:/ipfs/Qmc6bE7otfHA4uKrf9pLhe8FN4G15Y8rmbEU4JZxkFdZVi"
 			]
 		}
 	},
