@@ -42,7 +42,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/01_project/01_荷兰拍卖/DutchAuction.sol": "IERC721"
+			"C2E_learning/01_project/02-英式拍卖/EnglishAuction.sol": "IERC721"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -56,12 +56,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/01_project/01_荷兰拍卖/DutchAuction.sol": {
-			"keccak256": "0x3ff9b4bd7021b775591786a194d9e9d771d5f7464fa1461ca8d9a2945069b44a",
+		"C2E_learning/01_project/02-英式拍卖/EnglishAuction.sol": {
+			"keccak256": "0xe0ff627e608316ceb7df4b52631cbda44c7170007d17098c66a12e007b6eba32",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://053e5d68d95335c3203b349709e91b7c2c2f14c3ad73b8731a2cbe806dcee0cf",
-				"dweb:/ipfs/Qmc6bE7otfHA4uKrf9pLhe8FN4G15Y8rmbEU4JZxkFdZVi"
+				"bzz-raw://d65f62a1b629b3549c443a932df1bfe3c95a3337de9ee60fdafa458c0ba4d5a0",
+				"dweb:/ipfs/QmVF2xpetoo93KRRH62N22M27hMngnCV9MJU3b6Wynohej"
 			]
 		}
 	},
