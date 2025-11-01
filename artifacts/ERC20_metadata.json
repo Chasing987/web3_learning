@@ -298,7 +298,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/MyToken.sol": "ERC20"
+			"C2E_learning/01_project/03-众筹/MyToken.sol": "ERC20"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -312,12 +312,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/MyToken.sol": {
-			"keccak256": "0xa3a17de7841df91a1c03f7d649123efb835bb1e4e53173578b7904082131ed66",
+		"C2E_learning/01_project/03-众筹/MyToken.sol": {
+			"keccak256": "0x2099bdd90cc9adddaca596a88ee0554f1627a0adf992345b9e7d0989578911ad",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://36572697dfe8c07a95c1399d1d8b7da3f09e18a900037f9e3a656da6d872b0bd",
-				"dweb:/ipfs/QmbHubaSQ71cU6VLgeGKZ4T6n3dBsimxzPTGE7sKhHWSoM"
+				"bzz-raw://610a2a979507dcbf4d4c4117134680b481a2a9697cb50373e1f3d826a18bc33c",
+				"dweb:/ipfs/QmXSTmwAr4jMgsFAri82EkPgqC2nRq5wL9414V4aoTC44f"
 			]
 		}
 	},
