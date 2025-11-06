@@ -16,9 +16,9 @@ contract CSAMM {
         token1 = IERC20(_token1);
     }
 
-    function _mint(address _to, uint256 amount) private {
-        balanceOf[_to] += amount;
-        totalSupply += amount;
+    function _mint(address _to, uint256 _amount) private {
+        balanceOf[_to] += _amount;
+        totalSupply += _amount;
     }
 
     function _burn(address _from, uint256 _amount) private {
@@ -31,32 +31,40 @@ contract CSAMM {
         reserve1 = _res1;
     }
 
+    // d0 = d1
     function swap(
         address _tokenIn,
         uint256 _amountIn
-    ) external returns (uint amountOut) {
+    ) external returns (uint256 amountOut) {
         require(
             _tokenIn == address(token0) || _tokenIn == address(token1),
-            "invalid toekn"
+            "invalid token"
         );
 
+        // tokenIn -> address(this)
         bool isToken0 = _tokenIn == address(token0);
 
-        (IERC20 tokenIn, IERC20 tokenOut, uint256 resIn, uint resOut) = isToken0
+        (IERC20 tokenIn, IERC20 tokenOut, uint256 resIn, uint256 resOut) = isToken0
             ? (token0, token1, reserve0, reserve1)
             : (token1, token0, reserve1, reserve0);
 
         tokenIn.transferFrom(msg.sender, address(this), _amountIn);
+
+        // cacluate tokenOut(tokenIn)
         uint256 amountIn = tokenIn.balanceOf(address(this)) - resIn;
 
         // 0.3% fee
         amountOut = (amountIn * 997) / 1000;
 
+        // update reserve0 reserve1
         (uint256 res0, uint256 res1) = isToken0
             ? (resIn + amountIn, resOut - amountOut)
             : (resOut - amountOut, resIn + amountIn);
 
+    
         _update(res0, res1);
+
+        // tokenOut ->> msg.sender
         tokenOut.transfer(msg.sender, amountOut);
     }
 
@@ -115,12 +123,17 @@ contract CSAMM {
         a = L * s / T
           = (reserve0 + reserve1) * s / T
         */
+        // calculate d0,d1
         d0 = (reserve0 * _shares) / totalSupply;
         d1 = (reserve1 * _shares) / totalSupply;
 
+        // burn share
         _burn(msg.sender, _shares);
+
+        // update reserve0 reserve1
         _update(reserve0 - d0, reserve1 - d1);
 
+        // token -> msg.sender
         if (d0 > 0) {
             token0.transfer(msg.sender, d0);
         }
