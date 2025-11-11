@@ -298,7 +298,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/01_project/05-恒和做市商/ERC20.sol": "ERC20"
+			"C2E_learning/01_project/06-恒积做市商/ERC20.sol": "ERC20"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -312,7 +312,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"C2E_learning/01_project/05-恒和做市商/ERC20.sol": {
+		"C2E_learning/01_project/06-恒积做市商/ERC20.sol": {
 			"keccak256": "0x7c208ee247cd24d29b74c4ee8fc365126982e0173a90b9b439fa00155c8ea4ac",
 			"license": "MIT",
 			"urls": [
