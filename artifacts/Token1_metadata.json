@@ -446,7 +446,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"C2E_learning/质押/Token1.sol": "Token1"
+			"C2E_learning/01_project/07-质押/Token1.sol": "Token1"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -500,7 +500,7 @@
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
 			]
 		},
-		"C2E_learning/质押/Token1.sol": {
+		"C2E_learning/01_project/07-质押/Token1.sol": {
 			"keccak256": "0xa3a7b889cf68a2fc464f93e73ded6e5d394a43c4fb9bc0f62a7843bc3547e7d3",
 			"license": "MIT",
 			"urls": [
